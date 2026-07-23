@@ -349,6 +349,94 @@
       border-top: 1px solid var(--border-color);
     }
 
+
+    /* Education: logo on the left, degree information on the right */
+    .education-list {
+      margin-top: 0.55em;
+    }
+
+    .education-item {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      align-items: center;
+      column-gap: 42px;
+
+      min-height: 150px;
+      padding: 24px 0;
+
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .education-item:last-child {
+      border-bottom: none;
+    }
+
+    .education-logo-box {
+      width: 210px;
+      height: 122px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+    }
+
+    .education-logo {
+      display: block;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    /* Individual sizing keeps the three differently shaped logos balanced. */
+    .logo-msu {
+      width: 112px;
+      height: 112px;
+    }
+
+    .logo-kcl {
+      width: 150px;
+      height: auto;
+    }
+
+    .logo-liverpool {
+      width: 205px;
+      height: auto;
+    }
+
+    .education-details {
+      min-width: 0;
+      text-align: left;
+    }
+
+    .education-details h3 {
+      margin: 0 0 0.18em;
+      color: var(--text-primary);
+      font-size: 1.24em;
+    }
+
+    .education-location {
+      margin: 0 0 0.65em;
+      color: var(--text-secondary);
+      font-size: 0.95em;
+    }
+
+    .education-degree {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+
+      margin: 0.28em 0;
+      text-align: left;
+    }
+
+    .education-date {
+      flex-shrink: 0;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
     /*
       Hide the side ornaments before they begin crowding the page.
     */
@@ -390,6 +478,40 @@
         margin-top: 2em;
         font-size: 1.35em;
       }
+
+      .education-item {
+        grid-template-columns: 150px minmax(0, 1fr);
+        column-gap: 24px;
+        min-height: 132px;
+        padding: 20px 0;
+      }
+
+      .education-logo-box {
+        width: 150px;
+        height: 105px;
+      }
+
+      .logo-msu {
+        width: 92px;
+        height: 92px;
+      }
+
+      .logo-kcl {
+        width: 125px;
+      }
+
+      .logo-liverpool {
+        width: 148px;
+      }
+
+      .education-degree {
+        display: block;
+      }
+
+      .education-date {
+        display: block;
+        margin-top: 0.08em;
+      }
     }
 
     @media (max-width: 420px) {
@@ -413,6 +535,29 @@
       img.profile {
         width: 140px;
         height: 140px;
+      }
+
+      .education-item {
+        grid-template-columns: 112px minmax(0, 1fr);
+        column-gap: 16px;
+      }
+
+      .education-logo-box {
+        width: 112px;
+        height: 88px;
+      }
+
+      .logo-msu {
+        width: 76px;
+        height: 76px;
+      }
+
+      .logo-kcl {
+        width: 104px;
+      }
+
+      .logo-liverpool {
+        width: 110px;
       }
     }
   </style>
@@ -600,58 +745,74 @@
 
 <h2>Education</h2>
 
-<div class="education-list">
+  <div class="education-list">
 
-  <div class="education-item">
-    <div class="education-logo-box">
-      <img src="msu.png" alt="Michigan State University logo">
+    <div class="education-item">
+      <div class="education-logo-box">
+        <img
+          src="msu.png"
+          alt="Michigan State University logo"
+          class="education-logo logo-msu"
+        >
+      </div>
+
+      <div class="education-details">
+        <h3>Michigan State University</h3>
+        <p class="education-location">East Lansing, MI, USA</p>
+
+        <p class="education-degree">
+          <span>Ph.D. in Computational Mathematics, Science &amp; Engineering</span>
+          <span class="education-date">2023–Present</span>
+        </p>
+
+        <p class="education-degree">
+          <span>M.S. in Computational Mathematics, Science &amp; Engineering</span>
+          <span class="education-date">2026</span>
+        </p>
+      </div>
     </div>
 
-    <div class="education-details">
-      <h3>Michigan State University</h3>
-      <p class="education-location">East Lansing, MI, USA</p>
-      <p>
-        Ph.D. in Computational Mathematics, Science and Engineering
-        <span class="education-date">2023–Present</span>
-      </p>
-      <p>
-        M.S. in Computational Mathematics, Science and Engineering
-        <span class="education-date">2026</span>
-      </p>
+    <div class="education-item">
+      <div class="education-logo-box">
+        <img
+          src="Kcl-logo.svg"
+          alt="King's College London logo"
+          class="education-logo logo-kcl"
+        >
+      </div>
+
+      <div class="education-details">
+        <h3>King's College London</h3>
+        <p class="education-location">London, United Kingdom</p>
+
+        <p class="education-degree">
+          <span>M.Sc. in Applied Statistical Modelling &amp; Health Informatics</span>
+          <span class="education-date">2021–2022</span>
+        </p>
+      </div>
     </div>
+
+    <div class="education-item">
+      <div class="education-logo-box">
+        <img
+          src="UoL.svg"
+          alt="University of Liverpool logo"
+          class="education-logo logo-liverpool"
+        >
+      </div>
+
+      <div class="education-details">
+        <h3>University of Liverpool</h3>
+        <p class="education-location">Liverpool, United Kingdom</p>
+
+        <p class="education-degree">
+          <span>B.Sc. in Mathematics &amp; Statistics</span>
+          <span class="education-date">2018–2021</span>
+        </p>
+      </div>
+    </div>
+
   </div>
-
-  <div class="education-item">
-    <div class="education-logo-box">
-      <img src="Kcl-logo.svg" alt="King's College London logo">
-    </div>
-
-    <div class="education-details">
-      <h3>King's College London</h3>
-      <p class="education-location">London, United Kingdom</p>
-      <p>
-        M.Sc. in Applied Statistical Modelling and Health Informatics
-        <span class="education-date">2021–2022</span>
-      </p>
-    </div>
-  </div>
-
-  <div class="education-item">
-    <div class="education-logo-box">
-      <img src="UoL.svg" alt="University of Liverpool logo">
-    </div>
-
-    <div class="education-details">
-      <h3>University of Liverpool</h3>
-      <p class="education-location">Liverpool, United Kingdom</p>
-      <p>
-        B.Sc. in Mathematics and Statistics
-        <span class="education-date">2018–2021</span>
-      </p>
-    </div>
-  </div>
-
-</div>
   
   <h2>Awards</h2>
   <p>
