@@ -8,17 +8,19 @@
 
   <style>
     :root {
-      --page-background: #eef2f6;
-      --card-background: rgba(255, 255, 255, 0.97);
-      --header-background: #f6f9fc;
-      --text-primary: #17212b;
-      --text-secondary: #465463;
-      --heading-color: #183b56;
-      --accent-color: #28638f;
-      --accent-light: #d9e7f2;
-      --border-color: #dce4eb;
-      --link-color: #175b91;
-      --link-hover: #0c3f68;
+      --page-background: #e9e9e6;
+      --paper-background: #fbfbfa;
+      --intro-background: #f3f3f1;
+
+      --text-primary: #20201f;
+      --text-secondary: #555552;
+      --heading-color: #262624;
+
+      --accent-color: #62625e;
+      --border-color: #d5d5d0;
+
+      --link-color: #3f464b;
+      --link-hover: #111111;
     }
 
     * {
@@ -28,25 +30,98 @@
     html {
       min-height: 100%;
       background:
-        radial-gradient(
-          circle at 12% 8%,
-          rgba(77, 129, 168, 0.13),
-          transparent 31%
-        ),
-        radial-gradient(
-          circle at 88% 20%,
-          rgba(127, 159, 187, 0.10),
-          transparent 28%
-        ),
         linear-gradient(
           180deg,
-          #e9eff5 0%,
-          #f4f6f8 52%,
-          #edf1f4 100%
+          #e5e5e2 0%,
+          #eeeeeb 48%,
+          #e6e6e3 100%
         );
     }
 
+    /*
+      Decorative research-grid panels.
+
+      These panels appear only in the otherwise-empty margins on
+      sufficiently wide screens. They contain no information and do
+      not affect the page layout.
+    */
+    html::before,
+    html::after {
+      content: "";
+
+      position: fixed;
+      top: 0;
+      bottom: 0;
+
+      width: calc((100vw - 940px) / 2);
+      min-width: 120px;
+      max-width: 260px;
+
+      pointer-events: none;
+      z-index: 0;
+
+      opacity: 0.52;
+
+      background-image:
+        radial-gradient(
+          circle,
+          rgba(30, 30, 28, 0.16) 1px,
+          transparent 1.2px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 31px,
+          rgba(30, 30, 28, 0.055) 31px,
+          rgba(30, 30, 28, 0.055) 32px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 31px,
+          rgba(30, 30, 28, 0.045) 31px,
+          rgba(30, 30, 28, 0.045) 32px
+        );
+
+      background-size:
+        48px 48px,
+        auto,
+        auto;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent 0%,
+          black 12%,
+          black 88%,
+          transparent 100%
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          transparent 0%,
+          black 12%,
+          black 88%,
+          transparent 100%
+        );
+    }
+
+    html::before {
+      left: 0;
+      border-right: 1px solid rgba(40, 40, 38, 0.08);
+    }
+
+    html::after {
+      right: 0;
+      border-left: 1px solid rgba(40, 40, 38, 0.08);
+      transform: scaleX(-1);
+    }
+
     body {
+      position: relative;
+      z-index: 1;
+
       font-family:
         "Helvetica Neue",
         Helvetica,
@@ -54,7 +129,7 @@
         sans-serif;
 
       color: var(--text-primary);
-      background: var(--card-background);
+      background: var(--paper-background);
 
       max-width: 840px;
       margin: 52px auto;
@@ -64,19 +139,34 @@
       text-align: justify;
       text-justify: inter-word;
 
-      border: 1px solid rgba(24, 59, 86, 0.08);
-      border-radius: 18px;
+      border: 1px solid rgba(30, 30, 28, 0.13);
+      border-radius: 6px;
 
       box-shadow:
-        0 22px 60px rgba(28, 48, 66, 0.10),
-        0 4px 14px rgba(28, 48, 66, 0.05);
+        0 18px 50px rgba(25, 25, 23, 0.075),
+        0 2px 8px rgba(25, 25, 23, 0.04);
+    }
+
+    /*
+      Thin inner rule gives the page a restrained printed-paper feel.
+    */
+    body::before {
+      content: "";
+
+      position: absolute;
+      inset: 8px;
+
+      border: 1px solid rgba(35, 35, 33, 0.035);
+      border-radius: 3px;
+
+      pointer-events: none;
     }
 
     h1 {
       margin-top: 0;
       margin-bottom: 0.25em;
 
-      color: #122c40;
+      color: #1c1c1b;
       font-size: 2.45em;
       font-weight: 700;
       letter-spacing: -0.025em;
@@ -88,7 +178,7 @@
 
       margin-top: 2.35em;
       margin-bottom: 0.85em;
-      padding-bottom: 0.45em;
+      padding-bottom: 0.5em;
 
       color: var(--heading-color);
       font-size: 1.48em;
@@ -105,18 +195,17 @@
       bottom: -1px;
       left: 0;
 
-      width: 62px;
-      height: 3px;
+      width: 58px;
+      height: 2px;
 
       background: var(--accent-color);
-      border-radius: 3px;
     }
 
     h3 {
       margin-top: 1.35em;
       margin-bottom: 0.45em;
 
-      color: #344e62;
+      color: #41413e;
       font-size: 1.12em;
       font-weight: 650;
     }
@@ -137,12 +226,13 @@
     }
 
     li::marker {
-      color: var(--accent-color);
+      color: #777772;
     }
 
     a {
       color: var(--link-color);
-      text-decoration: none;
+      text-decoration: underline;
+      text-decoration-color: rgba(63, 70, 75, 0.28);
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
 
@@ -153,20 +243,21 @@
 
     a:hover {
       color: var(--link-hover);
-      text-decoration: underline;
-      text-decoration-color: rgba(12, 63, 104, 0.55);
+      text-decoration-color: rgba(17, 17, 17, 0.75);
     }
 
     b {
-      color: #162735;
+      color: #1f1f1d;
       font-weight: 650;
     }
 
     i {
-      color: #273845;
+      color: #343432;
     }
 
     .intro {
+      position: relative;
+
       display: flex;
       align-items: center;
       gap: 30px;
@@ -176,13 +267,45 @@
 
       background:
         linear-gradient(
-          125deg,
-          rgba(232, 241, 248, 0.90),
-          rgba(248, 250, 252, 0.96)
+          135deg,
+          #f0f0ee 0%,
+          #f7f7f5 100%
         );
 
-      border: 1px solid var(--accent-light);
-      border-radius: 15px;
+      border: 1px solid #d8d8d3;
+      border-radius: 4px;
+    }
+
+    /*
+      Small corner marks echo figure-registration marks used in
+      technical drawings and printed research material.
+    */
+    .intro::before,
+    .intro::after {
+      content: "";
+
+      position: absolute;
+
+      width: 18px;
+      height: 18px;
+
+      pointer-events: none;
+    }
+
+    .intro::before {
+      top: 10px;
+      left: 10px;
+
+      border-top: 1px solid rgba(40, 40, 38, 0.24);
+      border-left: 1px solid rgba(40, 40, 38, 0.24);
+    }
+
+    .intro::after {
+      right: 10px;
+      bottom: 10px;
+
+      border-right: 1px solid rgba(40, 40, 38, 0.24);
+      border-bottom: 1px solid rgba(40, 40, 38, 0.24);
     }
 
     img.profile {
@@ -192,12 +315,12 @@
       object-fit: cover;
       flex-shrink: 0;
 
-      border: 4px solid rgba(255, 255, 255, 0.95);
-      border-radius: 12px;
+      border: 4px solid rgba(255, 255, 255, 0.96);
+      border-radius: 4px;
 
       box-shadow:
-        0 10px 24px rgba(32, 63, 87, 0.13),
-        0 2px 7px rgba(32, 63, 87, 0.08);
+        0 8px 22px rgba(25, 25, 23, 0.11),
+        0 1px 4px rgba(25, 25, 23, 0.08);
     }
 
     .intro-text {
@@ -212,6 +335,7 @@
 
     .intro-text p {
       margin-bottom: 0;
+
       color: var(--text-secondary);
       line-height: 1.65;
     }
@@ -224,13 +348,23 @@
       border-top: 1px solid var(--border-color);
     }
 
-    /* Responsive layout for tablets and mobile devices */
+    /*
+      Hide the side ornaments before they begin crowding the page.
+    */
+    @media (max-width: 1120px) {
+      html::before,
+      html::after {
+        display: none;
+      }
+    }
+
+    /* Tablet and mobile layout */
     @media (max-width: 700px) {
       body {
         margin: 18px 12px;
         padding: 30px 24px 36px;
 
-        border-radius: 14px;
+        border-radius: 4px;
       }
 
       .intro {
@@ -267,6 +401,10 @@
         box-shadow: none;
       }
 
+      body::before {
+        display: none;
+      }
+
       .intro {
         margin: 0 0 24px;
       }
@@ -280,6 +418,7 @@
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLJ0B05BGT"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -399,11 +538,7 @@
     Zhang, T., Jia, H., <b>Song, T.</b>, Lv, L., Gulhan, D. C., ..., & Shen, N. (2023).
     <i>
       <a
-        href="https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-023-01269-1
-        
-        
-        
-        "
+        href="https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-023-01269-1"
         target="_blank"
       >
         De novo identification of expressed cancer somatic mutations from
@@ -495,7 +630,7 @@
 
   <hr>
 
-  <p style="font-size: 0.95em; color: #55636f; margin-top: 2em;">
+  <p style="font-size: 0.95em; color: #555552; margin-top: 2em;">
     A complete version of my curriculum vitae can be downloaded
     <a href="TairanSong_RESUME.pdf" target="_blank">
       here (PDF)
