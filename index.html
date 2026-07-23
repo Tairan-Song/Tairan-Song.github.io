@@ -53,8 +53,9 @@
       top: 0;
       bottom: 0;
 
-      width: calc((100vw - 940px) / 2);
-      min-width: 120px;
+
+      width: calc((100vw - 1240px) / 2);
+      min-width: 0;
       max-width: 260px;
 
       pointer-events: none;
@@ -131,9 +132,9 @@
       color: var(--text-primary);
       background: var(--paper-background);
 
-      max-width: 840px;
+      max-width: 1200px;
       margin: 52px auto;
-      padding: 46px 52px 50px;
+      padding: 46px 64px 50px;
 
       line-height: 1.75;
       text-align: justify;
@@ -351,7 +352,7 @@
     /*
       Hide the side ornaments before they begin crowding the page.
     */
-    @media (max-width: 1120px) {
+    @media (max-width: 1320px) {
       html::before,
       html::after {
         display: none;
