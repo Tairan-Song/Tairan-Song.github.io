@@ -1,137 +1,396 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Tairan Song</title>
+
   <style>
+    :root {
+      --page-background: #eef2f6;
+      --card-background: rgba(255, 255, 255, 0.97);
+      --header-background: #f6f9fc;
+      --text-primary: #17212b;
+      --text-secondary: #465463;
+      --heading-color: #183b56;
+      --accent-color: #28638f;
+      --accent-light: #d9e7f2;
+      --border-color: #dce4eb;
+      --link-color: #175b91;
+      --link-hover: #0c3f68;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background:
+        radial-gradient(
+          circle at 12% 8%,
+          rgba(77, 129, 168, 0.13),
+          transparent 31%
+        ),
+        radial-gradient(
+          circle at 88% 20%,
+          rgba(127, 159, 187, 0.10),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #e9eff5 0%,
+          #f4f6f8 52%,
+          #edf1f4 100%
+        );
+    }
+
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      color: #111;
-      background-color: #f2f2f2;
-      max-width: 760px;
-      margin: 60px auto;
-      padding: 0 20px;
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: var(--text-primary);
+      background: var(--card-background);
+
+      max-width: 840px;
+      margin: 52px auto;
+      padding: 46px 52px 50px;
+
       line-height: 1.75;
       text-align: justify;
       text-justify: inter-word;
-    }
-    h1 { font-size: 2.4em;; margin-bottom: 0.25em; }
-    h2 { font-size: 1.5em; margin-top: 2.2em; border-bottom: 1px solid #ddd; padding-bottom: 0.3em; }
-    h3 {font-size: 1.15em; margin-top: 1em; color: #333; font-weight: 600;}
-    a { color: #0056b3; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    p { margin-top: 0.6em; }
-    ul { margin-top: 0.4em; padding-left: 1.2em; }
 
-      .intro {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-        margin-bottom: 24px;
+      border: 1px solid rgba(24, 59, 86, 0.08);
+      border-radius: 18px;
+
+      box-shadow:
+        0 22px 60px rgba(28, 48, 66, 0.10),
+        0 4px 14px rgba(28, 48, 66, 0.05);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0.25em;
+
+      color: #122c40;
+      font-size: 2.45em;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+
+    h2 {
+      position: relative;
+
+      margin-top: 2.35em;
+      margin-bottom: 0.85em;
+      padding-bottom: 0.45em;
+
+      color: var(--heading-color);
+      font-size: 1.48em;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    h2::after {
+      content: "";
+
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+
+      width: 62px;
+      height: 3px;
+
+      background: var(--accent-color);
+      border-radius: 3px;
+    }
+
+    h3 {
+      margin-top: 1.35em;
+      margin-bottom: 0.45em;
+
+      color: #344e62;
+      font-size: 1.12em;
+      font-weight: 650;
+    }
+
+    p {
+      margin-top: 0.65em;
+      margin-bottom: 0.95em;
+    }
+
+    ul {
+      margin-top: 0.55em;
+      padding-left: 1.25em;
+    }
+
+    li {
+      margin-bottom: 0.9em;
+      padding-left: 0.15em;
+    }
+
+    li::marker {
+      color: var(--accent-color);
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+
+      transition:
+        color 0.18s ease,
+        text-decoration-color 0.18s ease;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+      text-decoration-color: rgba(12, 63, 104, 0.55);
+    }
+
+    b {
+      color: #162735;
+      font-weight: 650;
+    }
+
+    i {
+      color: #273845;
+    }
+
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      margin: -12px -16px 30px;
+      padding: 24px;
+
+      background:
+        linear-gradient(
+          125deg,
+          rgba(232, 241, 248, 0.90),
+          rgba(248, 250, 252, 0.96)
+        );
+
+      border: 1px solid var(--accent-light);
+      border-radius: 15px;
+    }
+
+    img.profile {
+      width: 200px;
+      height: 200px;
+
+      object-fit: cover;
+      flex-shrink: 0;
+
+      border: 4px solid rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+
+      box-shadow:
+        0 10px 24px rgba(32, 63, 87, 0.13),
+        0 2px 7px rgba(32, 63, 87, 0.08);
+    }
+
+    .intro-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .intro-text h1 {
+      margin-top: 0;
+      margin-bottom: 0.4em;
+    }
+
+    .intro-text p {
+      margin-bottom: 0;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    hr {
+      margin-top: 44px;
+      margin-bottom: 22px;
+
+      border: none;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Responsive layout for tablets and mobile devices */
+    @media (max-width: 700px) {
+      body {
+        margin: 18px 12px;
+        padding: 30px 24px 36px;
+
+        border-radius: 14px;
       }
-  
-      img.profile {
-        width: 200px;
-        height: 200px;
-        border-radius: 8px;
-        object-fit: cover;
-        flex-shrink: 0;
-      }
-  
-      .intro-text {
-        flex: 1;
-        text-align: left;
-      }
-  
-      .intro-text h1 {
-        margin-top: 0;
-        margin-bottom: 0.4em;
-      }
-  
-      hr {
-        margin-top: 40px;
-        margin-bottom: 20px;
-        border: none;
-        border-top: 1px solid #ddd;
-      }
-    /* --- Responsive layout for mobile --- */
-    @media (max-width: 600px) {
+
       .intro {
         flex-direction: column;
         align-items: flex-start;
+
+        gap: 18px;
+        margin: -6px -8px 26px;
+        padding: 20px;
       }
+
       img.profile {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 10px;
+        width: 155px;
+        height: 155px;
+      }
+
+      h1 {
+        font-size: 2.05em;
+      }
+
+      h2 {
+        margin-top: 2em;
+        font-size: 1.35em;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        margin: 0;
+        padding: 24px 18px 32px;
+
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .intro {
+        margin: 0 0 24px;
+      }
+
+      img.profile {
+        width: 140px;
+        height: 140px;
       }
     }
   </style>
-  
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLJ0B05BGT"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
     gtag('config', 'G-MLJ0B05BGT');
   </script>
 </head>
+
 <body>
 
   <div class="intro">
-    <img src="ProfilePhoto.png" alt="Profile Photo" class="profile">
+    <img
+      src="ProfilePhoto.png"
+      alt="Profile Photo"
+      class="profile"
+    >
 
     <div class="intro-text">
       <h1>Tairan Song</h1>
+
       <p>
-        Ph.D. Student, <a href="https://midilab.notion.site/" target="_blank">MIDI Lab</a><br>
-        <a href="https://cmse.msu.edu/" target="_blank">Department of Computational Mathematics, Science & Engineering (CMSE)</a><br>
-        <a href="https://msu.edu/" target="_blank">Michigan State University</a><br>
-        Advisor: <a href="https://engineering.msu.edu/faculty/adam-alessio" target="_blank">Dr. Adam Alessio</a><br>
-        Email: <a href="mailto:songtai1@msu.edu">songtai1@msu.edu</a> |
-        <a href="https://www.linkedin.com/in/tairan-s/" target="_blank">LinkedIn</a> |
-        <a href="TairanSong_RESUME.pdf" target="_blank">CV</a> |
-        <a href="https://github.com/Tairan-Song" target="_blank">GitHub</a>
+        Ph.D. Student,
+        <a href="https://midilab.notion.site/" target="_blank">MIDI Lab</a><br>
+
+        <a href="https://cmse.msu.edu/" target="_blank">
+          Department of Computational Mathematics, Science & Engineering (CMSE)
+        </a><br>
+
+        <a href="https://msu.edu/" target="_blank">
+          Michigan State University
+        </a><br>
+
+        Advisor:
+        <a
+          href="https://engineering.msu.edu/faculty/adam-alessio"
+          target="_blank"
+        >
+          Dr. Adam Alessio
+        </a><br>
+
+        Email:
+        <a href="mailto:songtai1@msu.edu">
+          songtai1@msu.edu
+        </a>
+        |
+        <a href="https://www.linkedin.com/in/tairan-s/" target="_blank">
+          LinkedIn
+        </a>
+        |
+        <a href="TairanSong_RESUME.pdf" target="_blank">
+          CV
+        </a>
+        |
+        <a href="https://github.com/Tairan-Song" target="_blank">
+          GitHub
+        </a>
       </p>
     </div>
   </div>
+
   <p>
-  I am a Ph.D. student in the <a href="https://midilab.notion.site/" target="_blank">MIDI Lab</a> 
-  at Michigan State University, advised by 
-  <a href="https://engineering.msu.edu/faculty/adam-alessio" target="_blank">Dr. Adam Alessio</a>.
-  My research lies at the intersection of <b>medical image analysis, statistical modeling, and deep learning</b>,
-  with a primary focus on <b>CT-based kidney cancer imaging</b>.
+    I am a Ph.D. student in the
+    <a href="https://midilab.notion.site/" target="_blank">MIDI Lab</a>
+    at Michigan State University, advised by
+    <a
+      href="https://engineering.msu.edu/faculty/adam-alessio"
+      target="_blank"
+    >
+      Dr. Adam Alessio
+    </a>.
+    My research lies at the intersection of
+    <b>medical image analysis, statistical modeling, and deep learning</b>,
+    with a primary focus on
+    <b>CT-based kidney cancer imaging</b>.
   </p>
-  
+
   <p>
-  I develop machine learning methods that are robust to real-world clinical heterogeneity,
-  including variability in contrast timing, acquisition protocols, and anatomical context.
-  My work emphasizes <b>radiomics-based modeling, multi-organ contextual feature representations</b>,
-  and clinically deployable pipelines for oncologic imaging and prognosis.
+    I develop machine learning methods that are robust to real-world clinical
+    heterogeneity, including variability in contrast timing, acquisition
+    protocols, and anatomical context. My work emphasizes
+    <b>radiomics-based modeling, multi-organ contextual feature representations</b>,
+    and clinically deployable pipelines for oncologic imaging and prognosis.
   </p>
 
   <h2>Selected Research</h2>
+
   <ul>
     <li>
       <b>Kidney Cancer Grade Prediction from Heterogeneous Contrast-Enhanced CT</b><br>
-      Proposed a radiomics-based modeling framework for renal tumor grading that is robust to
-      highly variable contrast timing in real-world abdominal CT.
-      By incorporating quantitative descriptors from surrounding anatomical regions
-      (e.g., normal kidney and major vessels), the approach improves grading stability
-      without relying on explicit phase labeling or normalization.
+      Proposed a radiomics-based modeling framework for renal tumor grading
+      that is robust to highly variable contrast timing in real-world
+      abdominal CT. By incorporating quantitative descriptors from
+      surrounding anatomical regions (e.g., normal kidney and major vessels),
+      the approach improves grading stability without relying on explicit
+      phase labeling or normalization.
     </li>
 
     <li>
       <b>De Novo Identification of Expressed Somatic Mutations from Single-Cell RNA Sequencing</b><br>
-      Contributed to the development of the RESA computational framework for high-precision
-      identification of expressed somatic mutations from scRNA-seq data.
-      The work integrates statistical modeling and empirical validation to improve mutation
-      detection sensitivity and precision across diverse datasets.
+      Contributed to the development of the RESA computational framework for
+      high-precision identification of expressed somatic mutations from
+      scRNA-seq data. The work integrates statistical modeling and empirical
+      validation to improve mutation detection sensitivity and precision
+      across diverse datasets.
     </li>
   </ul>
-
 
   <h2>Publications & Conference Presentations</h2>
 
@@ -140,72 +399,110 @@
   <p>
     Zhang, T., Jia, H., <b>Song, T.</b>, Lv, L., Gulhan, D. C., ..., & Shen, N. (2023).
     <i>
-      <a href="https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-023-01269-1
+      <a
+        href="https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-023-01269-1
+        
+        
         
         "
-         target="_blank">
-        De novo identification of expressed cancer somatic mutations from single-cell RNA sequencing data.
+        target="_blank"
+      >
+        De novo identification of expressed cancer somatic mutations from
+        single-cell RNA sequencing data.
       </a>
     </i>
     <b>Genome Medicine</b>, 15(1), 115.
   </p>
 
   <h3>Conference Presentations</h3>
+
   <p>
     <b>Song, T.</b>, Noyes-Ardrey, S., Muterspaugh, R. D.,
     Munavar Ali, M. A., ..., & Alessio, A. M. (2026).
-    <i>Core-to-Margin Radiomic Profiling for Predicting Kidney Cancer Grade from Variable-Phase CT.</i>
+    <i>
+      Core-to-Margin Radiomic Profiling for Predicting Kidney Cancer Grade
+      from Variable-Phase CT.
+    </i>
     Scientific Poster Presentation,
-    <b>112th Scientific Assembly and Annual Meeting of the Radiological Society of North America (RSNA 2026)</b>,
+    <b>
+      112th Scientific Assembly and Annual Meeting of the Radiological Society
+      of North America (RSNA 2026)
+    </b>,
     McCormick Place, Chicago, IL, November 29–December 3, 2026.
   </p>
 
   <p>
-    Muterspaugh, R. D., Munavar Ali, M. A., <b>Song, T.</b>, ..., & Alessio, A. M. (2026).
+    Muterspaugh, R. D., Munavar Ali, M. A., <b>Song, T.</b>, ...,
+    & Alessio, A. M. (2026).
     <i>
-      <a href="https://scholarlyworks.corewellhealth.org/corewellhealth_west_research_confabstract/178/"
-         target="_blank">
-        Deep Learning-Based Detection of High-Risk Renal Masses from All-Cause Abdominal CT.
+      <a
+        href="https://scholarlyworks.corewellhealth.org/corewellhealth_west_research_confabstract/178/"
+        target="_blank"
+      >
+        Deep Learning-Based Detection of High-Risk Renal Masses from
+        All-Cause Abdominal CT.
       </a>
     </i>
-    Abstract Presentation, <b>Corewell Health West Research Day</b>,
+    Abstract Presentation,
+    <b>Corewell Health West Research Day</b>,
     Grand Rapids, MI, May 8, 2026. Abstract 1968.
   </p>
 
   <p>
     <b>Song, T.</b> (2024).
-    <i>Enhancing Transcription Factor Binding Site Prediction with Epigenetic Data:
-    A BERT-Based Machine Learning Innovation.</i>
+    <i>
+      Enhancing Transcription Factor Binding Site Prediction with Epigenetic
+      Data: A BERT-Based Machine Learning Innovation.
+    </i>
     Poster Presentation,
-    <b>20th Annual Meeting of the MidSouth Computational Biology and
-    Bioinformatics Society (MCBIOS 2024)</b>,
+    <b>
+      20th Annual Meeting of the MidSouth Computational Biology and
+      Bioinformatics Society (MCBIOS 2024)
+    </b>,
     Emory University, Atlanta, GA, March 22–24, 2024.
   </p>
 
   <h2>Awards</h2>
+
   <p>
-    <b>NSF NRT-IMPACTS Fellowship</b> – Michigan State University (2023). Funded by the National Science Foundation Research Traineeship Program (DGE-1828149).
+    <b>NSF NRT-IMPACTS Fellowship</b> – Michigan State University (2023).
+    Funded by the National Science Foundation Research Traineeship Program
+    (DGE-1828149).
   </p>
 
   <h2>Teaching</h2>
 
   <h3>Teaching Assistant</h3>
+
   <ul>
-    <li>CMSE 202: Computational Modeling and Data Analysis II (Spring 2025)</li>
+    <li>
+      CMSE 202: Computational Modeling and Data Analysis II (Spring 2025)
+    </li>
   </ul>
-  
+
   <h2>Contact</h2>
+
   <p>
-    <a href="mailto:songtai1@msu.edu">songtai1@msu.edu</a><br>
-    <a href="mailto:tairan_song@outlook.com">tairan_song@outlook.com</a><br>
+    <a href="mailto:songtai1@msu.edu">
+      songtai1@msu.edu
+    </a><br>
+
+    <a href="mailto:tairan_song@outlook.com">
+      tairan_song@outlook.com
+    </a><br>
+
     Michigan State University, East Lansing, MI, USA
   </p>
 
   <hr>
-  <p style="font-size:0.95em; color:#555; margin-top:2em;">
-    A complete version of my curriculum vitae can be downloaded 
-    <a href="TairanSong_RESUME.pdf" target="_blank">here (PDF)</a>.
+
+  <p style="font-size: 0.95em; color: #55636f; margin-top: 2em;">
+    A complete version of my curriculum vitae can be downloaded
+    <a href="TairanSong_RESUME.pdf" target="_blank">
+      here (PDF)
+    </a>.
   </p>
 
 </body>
 </html>
+```
