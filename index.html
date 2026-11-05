@@ -121,29 +121,12 @@
     .presentation-label.oral { color: #1e5d98; background: #eaf2fc; border-color: #cbdef5; }
     .entry p { margin: 0; color: var(--muted); }
     .author-self { color: #000; font-weight: 700; }
-    .education-list { margin: 8px 0 0; padding: 0; list-style: none; }
-    .education-item {
-      position: relative;
-      padding: 5px 0 5px 14px;
-      line-height: 1.3;
-    }
-    .education-item::before {
-      content: "";
-      position: absolute;
-      top: 12px;
-      left: 0;
-      width: 5px;
-      height: 5px;
-      background: currentColor;
-    }
-    .education-item h3 { margin: 0 0 2px; font-size: 1em; font-weight: 600; }
     .education-degree {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: baseline;
       column-gap: 16px;
     }
-    .education-item p { margin: 0; }
     .education-date { white-space: nowrap; }
     .additional p { margin-top: 8px; }
     footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; }
@@ -262,8 +245,8 @@
     </section>
     <section aria-labelledby="education">
       <h2 id="education">Education</h2>
-      <ul class="education-list">
-        <li class="education-item">
+      <ul class="entries education-list">
+        <li class="entry education-item">
           <h3>Michigan State University</h3>
           <div class="education-degree">
             <p>Ph.D., Computational Mathematics, Science and Engineering</p>
@@ -274,14 +257,14 @@
             <p class="education-date">2023&ndash;2026</p>
           </div>
         </li>
-        <li class="education-item">
+        <li class="entry education-item">
           <h3>King&rsquo;s College London</h3>
           <div class="education-degree">
             <p>M.Sc., Applied Statistical Modelling &amp; Health Informatics</p>
             <p class="education-date">2021&ndash;2022</p>
           </div>
         </li>
-        <li class="education-item">
+        <li class="entry education-item">
           <h3>University of Liverpool</h3>
           <div class="education-degree">
             <p>B.Sc., Mathematics &amp; Statistics</p>
