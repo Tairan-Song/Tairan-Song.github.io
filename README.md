@@ -36,20 +36,7 @@ Open the server address in a browser. Changes to `index.html` appear after refre
 
 ## Updating the website
 
-- **Page content and appearance:** edit `index.html`; styles are in its `<style>` block.
-- **Images:** keep profile photos, logos, and other figures in `figures/`.
-- **CV and presentation materials:** keep public documents in `materials/`. Use PDF for browser viewing and update every reference when renaming a file.
-- **Publications:** maintain accurate author order, publication years, and acceptance status. The main publication entries retain the longer author lists.
-- **Conference presentations:** use the `Oral` or `Poster` label. Where applicable, show the first three authors, an ellipsis, and the final author; place the venue and resource links to the right on desktop.
-- **Author styling:** wrap `Song, T.` in `<span class="author-self">Song, T.</span>` for bold black text. Preserve Sabrina's preferred citation name, `Noyes, S. L.`.
-
-Presentation PDFs open in a new tab without forcing a download:
-
-```html
-<a href="materials/RSNA_TS_AA.pdf" target="_blank" rel="noopener noreferrer">Slides</a>
-```
-
-Before publishing, check desktop and mobile layouts, author names, dates, images, and all CV and presentation links.
+Edit `index.html` to update the page. Store images in `figures/` and documents in `materials/`, and keep file links up to date.
 
 ## Hosting
 
