@@ -224,8 +224,9 @@
     .education-date { white-space: nowrap; }
     .entry .education-date { color: var(--secondary); font-size: 13.25px; }
     .additional p { margin-top: 8px; }
-    footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; }
+    footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; text-align: center; }
     footer p { margin: 0; }
+    .quote-source { margin-top: 5px; font-size: 0.9em; color: var(--secondary); }
     @media (max-width: 700px) {
       body { width: calc(100% - 24px); margin: 16px auto; padding: 16px 18px 24px; font-size: 15px; }
       .intro { flex-direction: column; align-items: flex-start; gap: 12px; margin: 0 0 14px; padding: 16px; }
@@ -391,6 +392,7 @@
   </main>
   <footer>
     <p><em>One must imagine Sisyphus happy.</em></p>
+    <p class="quote-source">Albert Camus, <cite>The Myth of Sisyphus</cite> (1942)</p>
   </footer>
   <script>
     (() => {
