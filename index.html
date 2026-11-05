@@ -19,6 +19,7 @@
       color-scheme: light;
       --text: #27292d;
       --muted: #5b5d60;
+      --secondary: #686e76;
       --accent: #4f7dbd;
       --link: #285f9f;
       --link-hover: #164b87;
@@ -39,6 +40,7 @@
       color-scheme: dark;
       --text: #e6e6e8;
       --muted: #b7b7bd;
+      --secondary: #a8afb9;
       --accent: #9bbcf5;
       --link: #8ab4f8;
       --link-hover: #b6d2ff;
@@ -157,14 +159,23 @@
     .bio p { text-wrap: pretty; line-height: 1.5; }
     .entries { margin: 0; padding: 0; list-style: none; }
     .entry { padding: 7px 0; }
-    .entry + .entry { border-top: 1px solid var(--entry-rule); }
-    .entry h3 { margin: 0; font-size: 1em; font-weight: 600; line-height: 1.4; }
+    .entry + .entry { border-top: 1px solid color-mix(in srgb, var(--entry-rule) 65%, transparent); }
+    .entry h3 { margin: 0 0 2px; font-size: 1em; font-weight: 700; line-height: 1.45; }
     .entry-heading { display: flex; align-items: flex-start; gap: 12px; }
     .entry-heading h3 { flex: 1; min-width: 0; }
-    .presentation-details { display: flex; align-items: baseline; gap: 16px; }
-    .presentation-authors { flex: 1; min-width: 0; text-wrap: pretty; }
+    .presentation-details { display: block; }
+    .presentation-authors { text-wrap: pretty; }
     .presentation-authors .author-name { white-space: nowrap; }
-    .presentation-venue { flex-shrink: 0; text-align: right; white-space: nowrap; }
+    .entry .presentation-venue {
+      margin: 2px 0 0;
+      color: var(--secondary);
+      font-size: 13.25px;
+      line-height: 1.45;
+      text-align: left;
+      white-space: normal;
+      max-width: 100%;
+    }
+    .venue-location { white-space: nowrap; }
     .presentation-label {
       flex-shrink: 0;
       padding: 2px 9px;
@@ -179,24 +190,29 @@
     .presentation-label.oral { color: #315e96; background: #f0f4fa; border-color: #d8e2ef; }
     [data-theme="dark"] .presentation-label { color: #b0d6bc; background: #263a2c; border-color: #3e5947; }
     [data-theme="dark"] .presentation-label.oral { color: #a9c9f7; background: #24344b; border-color: #385274; }
-    .entry p { margin: 0; color: var(--muted); }
+    .entry p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    section[aria-labelledby="publications"] .entry > p:last-child { color: var(--secondary); font-size: 13.25px; }
     .author-self { color: var(--author); font-weight: 700; }
     .education-item h3 { display: flex; align-items: center; gap: 8px; }
     .school-mark {
       display: inline-flex;
       flex: 0 0 24px;
+      min-width: 0;
+      max-width: 24px;
       height: 18px;
       align-items: center;
       justify-content: center;
     }
     .school-logo {
       display: block;
-      width: 18px;
-      height: 18px;
+      flex: none;
+      width: 22px;
+      height: 22px;
+      max-width: none;
       object-fit: contain;
     }
-    .school-logo-kcl { width: 24px; }
-    .school-logo-liverpool { width: 14px; }
+    .school-logo-kcl { width: 28px; height: 20px; }
+    .school-logo-liverpool { width: 18px; }
     [data-theme="dark"] .school-logo { filter: invert(1); }
     .education-degree {
       display: grid;
@@ -206,6 +222,7 @@
     }
     .education-date, .presentation-venue { font-variant-numeric: lining-nums tabular-nums; }
     .education-date { white-space: nowrap; }
+    .entry .education-date { color: var(--secondary); font-size: 13.25px; }
     .additional p { margin-top: 8px; }
     footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; }
     footer p { margin: 0; }
@@ -215,9 +232,6 @@
       .profile { width: 148px; height: 148px; }
       h1 { font-size: 1.75rem; }
       h2 { margin-top: 22px; font-size: 1.2rem; }
-      .presentation-details { flex-wrap: wrap; row-gap: 2px; }
-      .presentation-authors { flex-basis: 100%; }
-      .presentation-details .presentation-venue { margin-left: auto; max-width: 100%; white-space: normal; }
       .education-degree { column-gap: 10px; }
       .education-date { color: var(--muted); font-size: 0.93em; }
     }
@@ -276,7 +290,7 @@
         <li class="entry">
           <h3>Supervoxel Graph Representation Learning for Renal Mass Classification from CT.</h3>
           <p><span class="author-self">Song, T.</span>, Huang, Z., Noyes, S. L., Muterspaugh, R., Munavar Ali, M., Zhou, S., Lane, B. R., Lim, E., &amp; Alessio, A. M. (2026).</p>
-          <p>SPIE Medical Imaging 2027 &middot; Proceedings Paper</p>
+          <p><a href="https://spie.org/medical-imaging/presentation/Supervoxel-graph-representation-learning-for-renal-mass-classification-from-CT/14519-52" target="_blank" rel="noopener noreferrer">SPIE Medical Imaging: Computer-Aided Diagnosis</a> &middot; 2027 &middot; Proceedings Paper</p>
         </li>
         <li class="entry">
           <h3>Histologic Grade Prediction in High-Risk Renal Masses from Multi-Region CT Analysis.</h3>
@@ -300,7 +314,7 @@
           </div>
           <div class="presentation-details">
             <p class="presentation-authors"><span class="author-self">Song, T.</span>, Huang, Z., Noyes, S. L., &hellip;, <span class="author-name">&amp; Alessio, A. M.</span></p>
-            <p class="presentation-venue">SPIE Medical Imaging 2027 &middot; Vancouver, Canada</p>
+            <p class="presentation-venue"><a class="conference-name" href="https://spie.org/medical-imaging/presentation/Supervoxel-graph-representation-learning-for-renal-mass-classification-from-CT/14519-52" target="_blank" rel="noopener noreferrer">SPIE Medical Imaging: Computer-Aided Diagnosis</a> &middot; 2027 &middot; <span class="venue-location">Vancouver, Canada</span></p>
           </div>
         </li>
         <li class="entry" id="rsna-2026">
@@ -310,7 +324,7 @@
           </div>
           <div class="presentation-details">
             <p class="presentation-authors"><span class="author-self">Song, T.</span>, Noyes, S. L., Muterspaugh, R. D., &hellip;, <span class="author-name">&amp; Alessio, A. M.</span></p>
-            <p class="presentation-venue">RSNA 2026 &middot; Chicago, USA &middot; <a href="materials/RSNA_TS_AA.pdf" target="_blank" rel="noopener noreferrer">Slides</a></p>
+            <p class="presentation-venue"><a class="conference-name" href="https://www.rsna.org/annual-meeting" target="_blank" rel="noopener noreferrer">Radiological Society of North America (RSNA) Annual Meeting</a> &middot; 2026 &middot; <span class="venue-location">Chicago, USA</span> &middot; <a href="materials/RSNA_TS_AA.pdf" target="_blank" rel="noopener noreferrer">Slides</a></p>
           </div>
         </li>
         <li class="entry">
@@ -320,7 +334,7 @@
           </div>
           <div class="presentation-details">
             <p class="presentation-authors"><span class="author-self">Song, T.</span>, et al.</p>
-            <p class="presentation-venue">MCBIOS 2024 &middot; Atlanta, USA</p>
+            <p class="presentation-venue"><a class="conference-name" href="https://mcbios.com/" target="_blank" rel="noopener noreferrer">MidSouth Computational Biology and Bioinformatics Society (MCBIOS) Annual Meeting</a> &middot; 2024 &middot; <span class="venue-location">Atlanta, USA</span></p>
           </div>
         </li>
       </ul>
@@ -329,7 +343,7 @@
       <h2 id="education">Education</h2>
       <ul class="entries education-list">
         <li class="entry education-item">
-          <h3><span class="school-mark" aria-hidden="true"><img class="school-logo" src="figures/msu.png" alt="" width="18" height="18"></span>Michigan State University</h3>
+          <h3><span class="school-mark" aria-hidden="true"><img class="school-logo" src="figures/msu.png" alt="" width="22" height="22"></span>Michigan State University</h3>
           <div class="education-degree">
             <p>Ph.D., Computational Mathematics, Science and Engineering</p>
             <p class="education-date">2023&ndash;Present</p>
@@ -340,14 +354,14 @@
           </div>
         </li>
         <li class="entry education-item">
-          <h3><span class="school-mark" aria-hidden="true"><img class="school-logo school-logo-kcl" src="figures/Kcl-logo.svg" alt="" width="24" height="18"></span>King&rsquo;s College London</h3>
+          <h3><span class="school-mark" aria-hidden="true"><img class="school-logo school-logo-kcl" src="figures/Kcl-logo.svg" alt="" width="28" height="20"></span>King&rsquo;s College London</h3>
           <div class="education-degree">
             <p>M.Sc., Applied Statistical Modelling &amp; Health Informatics</p>
             <p class="education-date">2021&ndash;2022</p>
           </div>
         </li>
         <li class="entry education-item">
-          <h3><span class="school-mark" aria-hidden="true"><svg class="school-logo school-logo-liverpool" viewBox="0 0 112 144.7" width="14" height="18" focusable="false"><image href="figures/UoL.svg" width="566.9" height="144.7" /></svg></span>University of Liverpool</h3>
+          <h3><span class="school-mark" aria-hidden="true"><svg class="school-logo school-logo-liverpool" viewBox="0 0 112 144.7" width="18" height="22" focusable="false"><image href="figures/UoL.svg" width="566.9" height="144.7" /></svg></span>University of Liverpool</h3>
           <div class="education-degree">
             <p>B.Sc., Mathematics &amp; Statistics</p>
             <p class="education-date">2018&ndash;2021</p>
