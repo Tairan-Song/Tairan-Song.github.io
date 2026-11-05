@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Tairan Song is a Ph.D. student at Michigan State University researching medical imaging, radiomics, and graph-based learning for renal mass characterization.">
   <title>Tairan Song</title>
+  <script>
+    (() => {
+      let savedTheme;
+      try { savedTheme = localStorage.getItem('tairan-theme'); } catch {}
+      document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark'
+        ? savedTheme
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    })();
+  </script>
   <style>
     :root {
       color-scheme: light;
@@ -14,11 +23,40 @@
       --link: #0066cc;
       --link-hover: #004799;
       --border: #c8ccd0;
+      --paper: #fbfbfa;
+      --canvas-start: #f7f7f5;
+      --canvas-end: #e9e9e6;
+      --intro-start: #f0f0ee;
+      --intro-end: #f8f8f6;
+      --intro-border: #d1d3d5;
+      --heading-rule: #a8afb5;
+      --entry-rule: #d6d8da;
+      --photo-border: #fff;
+      --author: #000;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --text: #e6e6e8;
+      --muted: #b7b7bd;
+      --accent: #9bbcf5;
+      --link: #8ab4f8;
+      --link-hover: #b6d2ff;
+      --border: #414145;
+      --paper: #1c1c1e;
+      --canvas-start: #1c1c1e;
+      --canvas-end: #101011;
+      --intro-start: #242426;
+      --intro-end: #29292b;
+      --intro-border: #414145;
+      --heading-rule: #45454a;
+      --entry-rule: #3a3a3e;
+      --photo-border: #48484a;
+      --author: #fff;
     }
     * { box-sizing: border-box; }
     html {
       min-height: 100%;
-      background: radial-gradient(ellipse at top, #f7f7f5, #e9e9e6);
+      background: radial-gradient(ellipse at top, var(--canvas-start), var(--canvas-end));
     }
     body {
       width: calc(100% - 64px);
@@ -26,7 +64,7 @@
       margin: 32px auto;
       padding: 20px 28px 24px;
       color: var(--text);
-      background: #fbfbfa;
+      background: var(--paper);
       border: 1px solid var(--border);
       border-radius: 6px;
       font-family: "Times New Roman", Times, "Liberation Serif", serif;
@@ -55,7 +93,7 @@
       margin: 22px 0 4px;
       padding-bottom: 5px;
       color: var(--accent);
-      border-bottom: 1px solid #a8afb5;
+      border-bottom: 1px solid var(--heading-rule);
       font-size: 1.25rem;
       line-height: 1.25;
     }
@@ -66,9 +104,9 @@
       gap: 24px;
       margin: 0 0 14px;
       padding: 16px 20px;
-      border: 1px solid #d1d3d5;
+      border: 1px solid var(--intro-border);
       border-radius: 4px;
-      background: linear-gradient(135deg, #f0f0ee, #f8f8f6);
+      background: linear-gradient(135deg, var(--intro-start), var(--intro-end));
     }
     .intro::before {
       content: "";
@@ -77,9 +115,34 @@
       left: 10px;
       width: 20px;
       height: 20px;
-      border-top: 1px solid #b9b9b5;
-      border-left: 1px solid #b9b9b5;
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
       pointer-events: none;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      gap: 6px;
+      padding: 5px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--text);
+      font: inherit;
+      font-size: 12px;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+    .theme-toggle:not([hidden]) { display: inline-flex; align-items: center; }
+    .theme-toggle:hover { border-color: var(--muted); }
+    .theme-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+    .theme-icon {
+      width: 12px;
+      height: 12px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      background: linear-gradient(90deg, currentColor 50%, var(--paper) 50%);
     }
     .profile {
       display: block;
@@ -87,7 +150,7 @@
       height: 164px;
       object-fit: cover;
       flex-shrink: 0;
-      border: 4px solid white;
+      border: 4px solid var(--photo-border);
       border-radius: 3px;
       box-shadow: 0 3px 10px #00000026;
     }
@@ -99,7 +162,7 @@
     .bio p { text-wrap: pretty; }
     .entries { margin: 0; padding: 0; list-style: none; }
     .entry { padding: 7px 0; }
-    .entry + .entry { border-top: 1px solid #d6d8da; }
+    .entry + .entry { border-top: 1px solid var(--entry-rule); }
     .entry h3 { margin: 0; font-size: 1em; font-weight: 600; line-height: 1.4; }
     .entry-heading { display: flex; align-items: flex-start; gap: 12px; }
     .entry-heading h3 { flex: 1; min-width: 0; }
@@ -119,8 +182,10 @@
       line-height: 1.5;
     }
     .presentation-label.oral { color: #1e5d98; background: #eaf2fc; border-color: #cbdef5; }
+    [data-theme="dark"] .presentation-label { color: #b0d6bc; background: #263a2c; border-color: #3e5947; }
+    [data-theme="dark"] .presentation-label.oral { color: #a9c9f7; background: #24344b; border-color: #385274; }
     .entry p { margin: 0; color: var(--muted); }
-    .author-self { color: #000; font-weight: 700; }
+    .author-self { color: var(--author); font-weight: 700; }
     .education-degree {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -163,6 +228,10 @@
 </head>
 <body>
   <header class="intro">
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" hidden>
+      <span class="theme-icon" aria-hidden="true"></span>
+      <span class="theme-label">Dark</span>
+    </button>
     <img src="figures/ProfilePhoto.png" alt="Tairan Song" class="profile" width="164" height="164">
     <div class="intro-text">
       <h1>Tairan Song</h1>
@@ -296,5 +365,40 @@
   <footer>
     <p>A complete version of my curriculum vitae can be downloaded <a href="materials/TairanSong_CV.pdf" target="_blank" rel="noopener noreferrer">here (PDF)</a>.</p>
   </footer>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const button = document.getElementById('theme-toggle');
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+      let manualTheme = false;
+      try { manualTheme = ['light', 'dark'].includes(localStorage.getItem('tairan-theme')); } catch {}
+
+      function updateButton() {
+        const dark = root.dataset.theme === 'dark';
+        const action = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        button.querySelector('.theme-label').textContent = dark ? 'Light' : 'Dark';
+        button.setAttribute('aria-label', action);
+        button.title = action;
+      }
+
+      updateButton();
+      button.hidden = false;
+      button.addEventListener('click', () => {
+        const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        manualTheme = true;
+        root.dataset.theme = theme;
+        updateButton();
+        try {
+          localStorage.setItem('tairan-theme', theme);
+        } catch {}
+      });
+      systemTheme.addEventListener('change', (event) => {
+        if (!manualTheme) {
+          root.dataset.theme = event.matches ? 'dark' : 'light';
+          updateButton();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
