@@ -227,17 +227,10 @@
     footer { margin-top: 12px; padding-top: 4px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; text-align: center; }
     footer p { margin: 0; }
     .footer-quotation {
-      display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      align-items: center;
-      gap: 8px;
-      width: 420px;
+      width: 480px;
       max-width: 100%;
       margin: 0 auto;
     }
-    .sisyphus-illustration { display: block; width: 100%; height: auto; transform: translateX(4px); }
-    [data-theme="dark"] .sisyphus-illustration { filter: invert(1); }
-    .quotation-copy { min-width: 0; }
     .quote-text { text-wrap: balance; font-size: 16px; line-height: 1.1; }
     .quote-source { margin-top: 0; font-size: 0.9em; line-height: 1.1; color: var(--secondary); text-align: right; }
     .quote-source::before { content: ""; display: inline-block; width: 16px; margin-right: 7px; border-top: 1px solid currentColor; vertical-align: middle; }
@@ -250,7 +243,6 @@
       h2 { margin-top: 22px; font-size: 1.2rem; }
       .education-degree { column-gap: 10px; }
       .education-date { color: var(--muted); font-size: 0.93em; }
-      .footer-quotation { grid-template-columns: 64px minmax(0, 1fr); gap: 8px; }
     }
     @media (max-width: 420px) {
       body { width: 100%; margin: 0; border: 0; border-radius: 0; padding: 16px; }
@@ -408,11 +400,8 @@
   </main>
   <footer>
     <div class="footer-quotation">
-      <img class="sisyphus-illustration" src="figures/sisyphus.svg" alt="Sisyphus pushing a boulder uphill" width="120" height="58">
-      <div class="quotation-copy">
-        <p class="quote-text"><em>One must imagine Sisyphus happy.</em></p>
-        <p class="quote-source">Albert Camus, <cite>The Myth of Sisyphus</cite> (1942)</p>
-      </div>
+      <p class="quote-text"><em>One must imagine Sisyphus happy.</em></p>
+      <p class="quote-source">Albert Camus, <cite>The Myth of Sisyphus</cite> (1942)</p>
     </div>
     <p class="footer-meta">&copy; 2026 Tairan Song &nbsp;|&nbsp; Last updated: <time datetime="2026-11">November 2026</time></p>
   </footer>
