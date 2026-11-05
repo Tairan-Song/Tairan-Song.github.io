@@ -99,6 +99,20 @@
     .entry { padding: 9px 0; }
     .entry + .entry { border-top: 1px solid #d6d8da; }
     .entry h3 { margin: 0; font-size: 1em; font-weight: 600; line-height: 1.45; }
+    .entry-heading { display: flex; align-items: flex-start; gap: 12px; }
+    .entry-heading h3 { flex: 1; min-width: 0; }
+    .presentation-label {
+      flex-shrink: 0;
+      padding: 2px 9px;
+      border: 1px solid #d2e6da;
+      border-radius: 999px;
+      color: #326f50;
+      background: #edf6f1;
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .presentation-label.oral { color: #1e5d98; background: #eaf2fc; border-color: #cbdef5; }
     .entry p { margin: 0; color: var(--muted); }
     .author-self { color: var(--accent); font-weight: 600; }
     .education-list { margin-top: 12px; }
@@ -192,24 +206,28 @@
       <h2 id="presentations">Conference Presentations</h2>
       <ul class="entries">
         <li class="entry">
-          <h3>Supervoxel Graph Representation Learning for Renal Mass Classification from CT.</h3>
+          <div class="entry-heading">
+            <h3>Supervoxel Graph Representation Learning for Renal Mass Classification from CT.</h3>
+            <span class="presentation-label oral">Oral</span>
+          </div>
           <p><span class="author-self">Song, T.</span>, Huang, Z., Noyes, S., &hellip;, &amp; Alessio, A. M.</p>
-          <p>SPIE Medical Imaging 2027 &middot; Oral Presentation</p>
+          <p>SPIE Medical Imaging 2027</p>
         </li>
         <li class="entry" id="rsna-2026">
-          <h3>Core-to-Margin Radiomic Profiling for Predicting Kidney Cancer Grade from Variable-Phase CT.</h3>
+          <div class="entry-heading">
+            <h3>Core-to-Margin Radiomic Profiling for Predicting Kidney Cancer Grade from Variable-Phase CT.</h3>
+            <span class="presentation-label">Poster</span>
+          </div>
           <p><span class="author-self">Song, T.</span>, Noyes, S., Muterspaugh, R. D., et al.</p>
-          <p>RSNA 2026 &middot; Scientific Poster Presentation <a href="RSNA_TS_AA.pptx" download>Poster slides (PPTX)</a></p>
+          <p>RSNA 2026 &middot; <a href="RSNA_TS_AA.pptx" download>Slides</a></p>
         </li>
         <li class="entry">
-          <h3>Enhancing Transcription Factor Binding Site Prediction with Epigenetic Data: A BERT-Based Machine Learning Innovation.</h3>
+          <div class="entry-heading">
+            <h3>Enhancing Transcription Factor Binding Site Prediction with Epigenetic Data: A BERT-Based Machine Learning Innovation.</h3>
+            <span class="presentation-label">Poster</span>
+          </div>
           <p><span class="author-self">Song, T.</span>, et al.</p>
-          <p>MCBIOS 2024 &middot; Scientific Poster Presentation</p>
-        </li>
-        <li class="entry">
-          <h3>Deep Learning Based Detection of High-Risk Renal Masses from All-Cause Abdominal CT.</h3>
-          <p>Muterspaugh, R. D., Munavar Ali, M. A., <span class="author-self">Song, T.</span>, &hellip;, Alessio, A. M., &amp; Lim, E.</p>
-          <p>Corewell Health West Research Day 2026 &middot; Abstract Presentation <a href="https://scholarlyworks.corewellhealth.org/corewellhealth_west_research_confabstract/178/" target="_blank" rel="noopener noreferrer" aria-label="Read the Corewell Health presentation abstract">[abstract]</a></p>
+          <p>MCBIOS 2024</p>
         </li>
       </ul>
     </section>
