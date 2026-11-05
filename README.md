@@ -1,4 +1,4 @@
-# Tairan Song — Academic Website
+# Tairan Song
 
 Personal academic website of **Tairan Song**, a Ph.D. student at Michigan State University working in the Medical Imaging and Data Integration (MIDI) Lab.
 
