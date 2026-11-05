@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="740" viewBox="0 175 1536 740" role="img" aria-labelledby="title description">
+  <title id="title">Geometric Sisyphus</title>
+  <desc id="description">A minimalist geometric figure pushes a circular boulder uphill. The drawing uses two circles and straight line segments.</desc>
+  <g fill="none" stroke="#5b5d60" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="52" y1="870.460" x2="1485" y2="454.890" />
+    <circle cx="870" cy="425" r="200" />
+    <circle cx="592" cy="451" r="28" />
+    <polyline points="672.577,457 621,493 566,497 522,540 483,632 431,695 402,768.960" />
+    <polyline points="522,540 610,600 570,720.240" />
+  </g>
+</svg>

@@ -226,9 +226,22 @@
     .additional p { margin-top: 8px; }
     footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; text-align: center; }
     footer p { margin: 0; }
-    .footer-quotation { width: 420px; max-width: 100%; margin: 0 auto; }
+    .footer-quotation {
+      display: grid;
+      grid-template-columns: 144px minmax(0, 1fr);
+      align-items: center;
+      gap: 24px;
+      width: 560px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .sisyphus-illustration { display: block; width: 100%; height: auto; }
+    [data-theme="dark"] .sisyphus-illustration { filter: invert(1); }
+    .quotation-copy { min-width: 0; }
+    .quote-text { text-wrap: balance; }
     .quote-source { margin-top: 5px; font-size: 0.9em; color: var(--secondary); text-align: right; }
     .quote-source::before { content: ""; display: inline-block; width: 16px; margin-right: 7px; border-top: 1px solid currentColor; vertical-align: middle; }
+    footer .footer-meta { margin-top: 16px; color: var(--secondary); font-size: 12px; line-height: 1.5; }
     @media (max-width: 700px) {
       body { width: calc(100% - 24px); margin: 16px auto; padding: 16px 18px 24px; font-size: 15px; }
       .intro { flex-direction: column; align-items: flex-start; gap: 12px; margin: 0 0 14px; padding: 16px; }
@@ -237,6 +250,7 @@
       h2 { margin-top: 22px; font-size: 1.2rem; }
       .education-degree { column-gap: 10px; }
       .education-date { color: var(--muted); font-size: 0.93em; }
+      .footer-quotation { grid-template-columns: 80px minmax(0, 1fr); gap: 12px; }
     }
     @media (max-width: 420px) {
       body { width: 100%; margin: 0; border: 0; border-radius: 0; padding: 16px; }
@@ -394,9 +408,13 @@
   </main>
   <footer>
     <div class="footer-quotation">
-      <p><em>One must imagine Sisyphus happy.</em></p>
-      <p class="quote-source">Albert Camus, <cite>The Myth of Sisyphus</cite> (1942)</p>
+      <img class="sisyphus-illustration" src="figures/sisyphus.svg" alt="Sisyphus pushing a boulder uphill" width="144" height="69">
+      <div class="quotation-copy">
+        <p class="quote-text"><em>One must imagine Sisyphus happy.</em></p>
+        <p class="quote-source">Albert Camus, <cite>The Myth of Sisyphus</cite> (1942)</p>
+      </div>
     </div>
+    <p class="footer-meta">&copy; 2026 Tairan Song &nbsp;|&nbsp; Last updated: <time datetime="2026-11">November 2026</time></p>
   </footer>
   <script>
     (() => {
