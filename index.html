@@ -226,7 +226,9 @@
     .additional p { margin-top: 8px; }
     footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; text-align: center; }
     footer p { margin: 0; }
-    .quote-source { margin-top: 5px; font-size: 0.9em; color: var(--secondary); }
+    .footer-quotation { width: 420px; max-width: 100%; margin: 0 auto; }
+    .quote-source { margin-top: 5px; font-size: 0.9em; color: var(--secondary); text-align: right; }
+    .quote-source::before { content: ""; display: inline-block; width: 16px; margin-right: 7px; border-top: 1px solid currentColor; vertical-align: middle; }
     @media (max-width: 700px) {
       body { width: calc(100% - 24px); margin: 16px auto; padding: 16px 18px 24px; font-size: 15px; }
       .intro { flex-direction: column; align-items: flex-start; gap: 12px; margin: 0 0 14px; padding: 16px; }
@@ -391,8 +393,10 @@
     </section>
   </main>
   <footer>
-    <p><em>One must imagine Sisyphus happy.</em></p>
-    <p class="quote-source">Albert Camus, <cite>The Myth of Sisyphus</cite> (1942)</p>
+    <div class="footer-quotation">
+      <p><em>One must imagine Sisyphus happy.</em></p>
+      <p class="quote-source">Albert Camus, <cite>The Myth of Sisyphus</cite> (1942)</p>
+    </div>
   </footer>
   <script>
     (() => {
