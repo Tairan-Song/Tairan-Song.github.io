@@ -224,24 +224,24 @@
     .education-date { white-space: nowrap; }
     .entry .education-date { color: var(--secondary); font-size: 13.25px; }
     .additional p { margin-top: 8px; }
-    footer { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; text-align: center; }
+    footer { margin-top: 16px; padding-top: 8px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9em; text-align: center; }
     footer p { margin: 0; }
     .footer-quotation {
       display: grid;
       grid-template-columns: 144px minmax(0, 1fr);
       align-items: center;
-      gap: 24px;
-      width: 560px;
+      gap: 12px;
+      width: 480px;
       max-width: 100%;
       margin: 0 auto;
     }
-    .sisyphus-illustration { display: block; width: 100%; height: auto; }
+    .sisyphus-illustration { display: block; width: 100%; height: auto; transform: translateX(4px); }
     [data-theme="dark"] .sisyphus-illustration { filter: invert(1); }
     .quotation-copy { min-width: 0; }
     .quote-text { text-wrap: balance; font-size: 16px; }
     .quote-source { margin-top: 5px; font-size: 0.9em; color: var(--secondary); text-align: right; }
     .quote-source::before { content: ""; display: inline-block; width: 16px; margin-right: 7px; border-top: 1px solid currentColor; vertical-align: middle; }
-    footer .footer-meta { margin-top: 16px; color: var(--secondary); font-size: 12px; line-height: 1.5; }
+    footer .footer-meta { margin-top: 8px; color: var(--secondary); font-size: 12px; line-height: 1.5; }
     @media (max-width: 700px) {
       body { width: calc(100% - 24px); margin: 16px auto; padding: 16px 18px 24px; font-size: 15px; }
       .intro { flex-direction: column; align-items: flex-start; gap: 12px; margin: 0 0 14px; padding: 16px; }
