@@ -10,7 +10,7 @@
       color-scheme: light;
       --text: #20201f;
       --muted: #4b4b49;
-      --accent: #007f70;
+      --accent: #4f7dbd;
       --link: #0066cc;
       --link-hover: #004799;
       --border: #c8ccd0;
@@ -29,7 +29,7 @@
       background: #fbfbfa;
       border: 1px solid var(--border);
       border-radius: 6px;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "Times New Roman", Times, "Liberation Serif", serif;
       font-size: 15px;
       line-height: 1.5;
     }
@@ -115,14 +115,25 @@
     .presentation-label.oral { color: #1e5d98; background: #eaf2fc; border-color: #cbdef5; }
     .entry p { margin: 0; color: var(--muted); }
     .author-self { color: #00695c; font-weight: 700; }
-    .education-list { margin-top: 12px; }
+    .education-list { margin: 12px 0 0; padding: 0; list-style: none; }
     .education-item {
+      position: relative;
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: baseline;
       gap: 6px 24px;
-      padding: 6px 0;
+      padding: 10px 0 10px 18px;
     }
+    .education-item::before {
+      content: "";
+      position: absolute;
+      top: 19px;
+      left: 0;
+      width: 5px;
+      height: 5px;
+      background: currentColor;
+    }
+    .education-item h3 { margin: 0; font-size: 1em; font-weight: 600; }
     .education-item p { margin: 0; }
     .education-date { white-space: nowrap; }
     .additional p { margin-top: 12px; }
@@ -134,7 +145,7 @@
       .profile { width: 148px; height: 148px; }
       h1 { font-size: 1.75rem; }
       h2 { margin-top: 24px; font-size: 1.2rem; }
-      .education-item { grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 8px 0; }
+      .education-item { grid-template-columns: minmax(0, 1fr); gap: 2px; }
       .education-date { color: var(--muted); font-size: 0.93em; }
     }
     @media (max-width: 420px) {
@@ -233,24 +244,36 @@
     </section>
     <section aria-labelledby="education">
       <h2 id="education">Education</h2>
-      <div class="education-list">
-        <div class="education-item">
-          <p><strong>Michigan State University</strong> &mdash; Ph.D., CMSE</p>
+      <ul class="education-list">
+        <li class="education-item">
+          <div>
+            <h3>Michigan State University</h3>
+            <p>Ph.D. in Computational Mathematics, Science &amp; Engineering</p>
+          </div>
           <p class="education-date">2023&ndash;Present</p>
-        </div>
-        <div class="education-item">
-          <p><strong>Michigan State University</strong> &mdash; M.S., CMSE</p>
+        </li>
+        <li class="education-item">
+          <div>
+            <h3>Michigan State University</h3>
+            <p>M.S. in Computational Mathematics, Science &amp; Engineering</p>
+          </div>
           <p class="education-date">2023&ndash;2026</p>
-        </div>
-        <div class="education-item">
-          <p><strong>King&rsquo;s College London</strong> &mdash; M.Sc., Applied Statistical Modelling &amp; Health Informatics</p>
+        </li>
+        <li class="education-item">
+          <div>
+            <h3>King&rsquo;s College London</h3>
+            <p>M.Sc. in Applied Statistical Modelling &amp; Health Informatics</p>
+          </div>
           <p class="education-date">2021&ndash;2022</p>
-        </div>
-        <div class="education-item">
-          <p><strong>University of Liverpool</strong> &mdash; B.Sc., Mathematics &amp; Statistics</p>
+        </li>
+        <li class="education-item">
+          <div>
+            <h3>University of Liverpool</h3>
+            <p>B.Sc. in Mathematics &amp; Statistics</p>
+          </div>
           <p class="education-date">2018&ndash;2021</p>
-        </div>
-      </div>
+        </li>
+      </ul>
     </section>
     <section class="additional" aria-labelledby="awards">
       <h2 id="awards">Awards</h2>
